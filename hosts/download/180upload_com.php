@@ -1,25 +1,25 @@
 <?php
 
 if (!defined('RAPIDLEECH')) {
-	require_once('index.html');
-	exit();
+    require_once 'index.html';
+    exit();
 }
 
-if (!file_exists(HOST_DIR . 'download/GenericXFS_DL.php')) html_error('Cannot load "'.htmlentities(HOST_DIR).'download/GenericXFS_DL.php" (File doesn\'t exists)');
-require_once(HOST_DIR . 'download/GenericXFS_DL.php');
+if (!file_exists(HOST_DIR.'download/GenericXFS_DL.php')) html_error('Cannot load "'.htmlentities(HOST_DIR).'download/GenericXFS_DL.php" (File doesn\'t exists)');
+require_once HOST_DIR.'download/GenericXFS_DL.php';
 
-class d180upload_com extends GenericXFS_DL {
-	public $pluginVer = 1;
-	public function Download($link) {
-		$this->wwwDomain = false; // Switch to true if filehost forces it's domain with www.
-		$this->cname = 'xfss'; // Session cookie name
-		$this->sslLogin = false; // Force https on login.
-		$this->embedDL = false; // Try to unpack player's js for finding download link. (Only hosts with video player)
+class d180upload_com extends GenericXFS_DL
+{
+    public $pluginVer = 1;
 
-		$this->Start($link);
-	}
+    public function Download($link) {
+        $this->wwwDomain = false; // Switch to true if filehost forces it's domain with www.
+        $this->cname = 'xfss'; // Session cookie name
+        $this->sslLogin = false; // Force https on login.
+        $this->embedDL = false; // Try to unpack player's js for finding download link. (Only hosts with video player)
+
+        $this->Start($link);
+    }
 }
 
 // Written by Th3-822.
-
-?>
